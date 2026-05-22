@@ -26,40 +26,52 @@
         {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
         {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
 
-        <!-- FIX: Shifted responsive margins to padding on this outer wrapper column -->
-        <div class="col-12 pl-1 pl-md-4">
+        <!-- FIX: Added pr-0 to remove right-side padding, and using a 100% width table to guarantee edge-to-edge alignment -->
+        <div class="col-12 pl-1 pl-md-4 pr-0">
           
-          <!-- Top Row: Degree/Area on left, Date on right -->
-          <div class="d-flex justify-content-between align-items-baseline w-100" style="margin-bottom: 0.15rem;">
-            <h6 class="title font-weight-bold mb-0" style="font-size: 1.05rem;">
-              {% if entry.url %}
-                <a href="{{ entry.url }}">{{ study_type }}{% if entry.area %} in {{ entry.area }}{% endif %}</a>
-              {% else %}
-                {{ study_type }}{% if entry.area %} in {{ entry.area }}{% endif %}
-              {% endif %}
-            </h6>
-            {% if date_string %}
-              <span class="text-muted small font-weight-normal text-right ml-2" style="white-space: nowrap;">
-                {{ date_string }}
-              </span>
-            {% endif %}
-          </div>
+          <table style="width: 100%; border: none; border-collapse: collapse;">
+            <tbody>
+              <!-- Top Row: Degree/Area on left, Date on right -->
+              <tr>
+                <td style="text-align: left; padding: 0; vertical-align: middle;">
+                  <h6 class="title font-weight-bold mb-0" style="font-size: 1.05rem;">
+                    {% if entry.url %}
+                      <a href="{{ entry.url }}">{{ study_type }}{% if entry.area %} in {{ entry.area }}{% endif %}</a>
+                    {% else %}
+                      {{ study_type }}{% if entry.area %} in {{ entry.area }}{% endif %}
+                    {% endif %}
+                  </h6>
+                </td>
+                <td style="text-align: right; padding: 0; padding-left: 15px; vertical-align: middle; white-space: nowrap;">
+                  {% if date_string %}
+                    <span class="text-muted small font-weight-normal">
+                      {{ date_string }}
+                    </span>
+                  {% endif %}
+                </td>
+              </tr>
 
-          <!-- Second Row: Institution on left (Global Theme Color), Location on right -->
-          <div class="d-flex justify-content-between align-items-baseline w-100" style="margin-bottom: 0.2rem; line-height: 1.3;">
-            <div class="text-color-theme" style="font-size: 0.95rem; font-weight: 500;">
-              {{ entry.institution }}
-            </div>
-            {% if location != '' %}
-              <span class="text-muted small text-right ml-2" style="font-size: 0.85rem; white-space: nowrap;">
-                <i class="fa-solid fa-location-dot" style="margin-right: 3px; opacity: 0.7;"></i>{{ location }}
-              </span>
-            {% endif %}
-          </div>
+              <!-- Second Row: Institution on left, Location on right -->
+              <tr>
+                <td style="text-align: left; padding: 0; padding-top: 0.15rem; vertical-align: top;">
+                  <div class="text-color-theme" style="font-size: 0.95rem; font-weight: 500; line-height: 1.3;">
+                    {{ entry.institution }}
+                  </div>
+                </td>
+                <td style="text-align: right; padding: 0; padding-top: 0.15rem; padding-left: 15px; vertical-align: top; white-space: nowrap;">
+                  {% if location != '' %}
+                    <span class="text-muted small" style="font-size: 0.85rem;">
+                      <i class="fa-solid fa-location-dot" style="margin-right: 3px; opacity: 0.7;"></i>{{ location }}
+                    </span>
+                  {% endif %}
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
           <!-- Conditional Row: Thesis PDF Button -->
           {% if entry.thesis_pdf %}
-            <div style="margin-bottom: 0.25rem; margin-top: 0.25rem;">
+            <div style="margin-bottom: 0.25rem; margin-top: 0.35rem;">
               <a href="{{ entry.thesis_pdf }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm p-1 px-2 m-0 align-baseline" style="font-size: 0.75rem; border: 1px solid #ced4da; background-color: #f8f9fa; color: #495057; border-radius: 4px; text-transform: none; box-shadow: none;">
                 <i class="fa-solid fa-file-pdf text-danger" style="margin-right: 5px;"></i>Thesis
               </a>
