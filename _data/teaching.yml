@@ -1,85 +1,84 @@
-teaching:
-  sections:
-    Instructor of Record:
-      - title: Calculus for Science and Engineering
-        code: MATH 19B
-        institution: UCSC
-        terms: Spring '22
-        notes: ~30 students
+sections:
+  Instructor of Record:
+    - title: Calculus for Science and Engineering
+      code: MATH 19B
+      institution: UCSC
+      terms: Spring '22
+      notes: ~30 students
 
-      - title: Linear Algebra
-        code: Summer School
-        institution: COSMOS Summer School
-        terms: Summer '25
+    - title: Linear Algebra
+      code: Summer School
+      institution: COSMOS Summer School
+      terms: Summer '25
 
-      - title: Number Theory
-        code: Summer School
-        institution: COSMOS Summer School
-        terms: Summer '26
+    - title: Number Theory
+      code: Summer School
+      institution: COSMOS Summer School
+      terms: Summer '26
 
-    Teaching Assistant:
-      - title: Calculus with Applications
-        code: MATH 11A/B
-        institution: UCSC
-        terms: Spring '21, Winter '22, Summer '22, Summer '23, Fall '24
+  Teaching Assistant:
+    - title: Calculus with Applications
+      code: MATH 11A/B
+      institution: UCSC
+      terms: Spring '21, Winter '22, Summer '22, Summer '23, Fall '24
 
-      - title: Mathematics for Life Sciences
-        code: MATH 16A/B
-        institution: UCSC
-        terms: Winter '25, Spring '25
+    - title: Mathematics for Life Sciences
+      code: MATH 16A/B
+      institution: UCSC
+      terms: Winter '25, Spring '25
 
-      - title: Calculus for Science and Engineering
-        code: MATH 19A/B
-        institution: UCSC
-        terms: Fall '20, Fall '23, Spring '24, Winter '25
+    - title: Calculus for Science and Engineering
+      code: MATH 19A/B
+      institution: UCSC
+      terms: Fall '20, Fall '23, Spring '24, Winter '25
 
-      - title: Linear Algebra
-        code: MATH 21
-        institution: UCSC
-        terms: Summer '21, Fall '21, Winter '23, Spring '26
+    - title: Linear Algebra
+      code: MATH 21
+      institution: UCSC
+      terms: Summer '21, Fall '21, Winter '23, Spring '26
 
-      - title: Ordinary Differential Equations
-        code: MATH 24
-        institution: UCSC
-        terms: Summer '23
+    - title: Ordinary Differential Equations
+      code: MATH 24
+      institution: UCSC
+      terms: Summer '23
 
-      - title: Intro to Proofs & Problem Solving
-        code: MATH 100
-        institution: UCSC
-        terms: Spring '23, Summer '25
+    - title: Intro to Proofs & Problem Solving
+      code: MATH 100
+      institution: UCSC
+      terms: Spring '23, Summer '25
 
-      - title: Algebra (Group Theory)
-        code: MATH 111A
-        institution: UCSC
-        terms: Fall '22, Fall '25
+    - title: Algebra (Group Theory)
+      code: MATH 111A
+      institution: UCSC
+      terms: Fall '22, Fall '25
 
-      - title: Advanced Linear Algebra
-        code: MATH 117
-        institution: UCSC
-        terms: Fall '25
+    - title: Advanced Linear Algebra
+      code: MATH 117
+      institution: UCSC
+      terms: Fall '25
 
-      - title: Programming for Mathematics (Python)
-        code: MATH 152
-        institution: UCSC
-        terms: Winter '24
+    - title: Programming for Mathematics (Python)
+      code: MATH 152
+      institution: UCSC
+      terms: Winter '24
 
-      - title: Introductory Chaos Theory
-        code: MATH 152
-        institution: UCSC
-        terms: Winter '24
+    - title: Introductory Chaos Theory
+      code: MATH 152
+      institution: UCSC
+      terms: Winter '24
 
-    Directed Reading Program:
-      - title: Galois Theory
-        institution: UCSC
-        mentor: Sanjana Paul
-        year: '22
+  Directed Reading Program:
+    - title: Galois Theory
+      institution: UCSC
+      mentor: Sanjana Paul
+      year: '22
 
-      - title: Lattice Based Cryptography
-        institution: UCSC
-        mentor: Ryan Jesubalan
-        year: '24
+    - title: Lattice Based Cryptography
+      institution: UCSC
+      mentor: Ryan Jesubalan
+      year: '24
 
-      - title: Coxeter Groups
-        institution: UCSC
-        mentor: Ryanne Reynolds
-        year: '26
+    - title: Coxeter Groups
+      institution: UCSC
+      mentor: Ryanne Reynolds
+      year: '26
