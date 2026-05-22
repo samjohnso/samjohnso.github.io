@@ -20,38 +20,53 @@ layout: default
           {% assign section_entries = section_pair[1] %}
 
           <a class="anchor" id="{{ section_title | slugify }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
+          
+          <!-- Reduced margin from mt-3 to mt-2, and padding from p-3 to p-2 -->
+          <div class="card mt-2 p-2">
+            <!-- Shrunk header level from h3 to h4 for a cleaner layout profile -->
+            <h4 class="card-title font-weight-medium mb-2 px-1" style="font-size: 1.25rem;">{{ section_title }}</h4>
             <div>
               <ul class="card-text font-weight-light list-group list-group-flush">
                 {% for entry in section_entries %}
-                  <li class="list-group-item">
-                    <div>
-                      {% if entry.title %}
-                        <h6 class="title font-weight-bold">{{ entry.title }}</h6>
-                      {% endif %}
+                  
+                  <!-- Significantly reduced list item padding vertically (py-1) -->
+                  <li class="list-group-item py-1 px-1">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                      
+                      <!-- Left column: Primary course details -->
+                      <div style="flex: 1; min-width: 250px;">
+                        {% if entry.title %}
+                          <span class="font-weight-bold" style="font-size: 0.95rem;">{{ entry.title }}</span>
+                        {% endif %}
 
-                      {% if entry.code %}
-                        <p class="mb-1"><strong>{{ entry.code }}</strong></p>
-                      {% endif %}
+                        {% if entry.code %}
+                          <span class="text-monospace ml-1" style="font-size: 0.8rem; background: #e9ecef; padding: 1px 5px; border-radius: 4px; color: #495057;">{{ entry.code }}</span>
+                        {% endif %}
 
-                      {% if entry.institution %}
-                        <p class="mb-1">{{ entry.institution }}</p>
-                      {% endif %}
+                        {% if entry.institution %}
+                          <span class="text-muted small ml-2">• {{ entry.institution }}</span>
+                        {% endif %}
 
+                        <!-- Secondary notes or mentors tuck neatly directly beneath -->
+                        {% if entry.notes %}
+                          <small class="text-secondary d-block mt-0"><em>{{ entry.notes }}</em></small>
+                        {% endif %}
+
+                        {% if entry.mentor %}
+                          <small class="text-secondary d-block mt-0"><em>with {{ entry.mentor }} ({{ entry.year }})</em></small>
+                        {% endif %}
+                      </div>
+
+                      <!-- Right column: Terms cleanly aligned on the edge -->
                       {% if entry.terms %}
-                        <p class="mb-0"><span class="badge badge-light">{{ entry.terms }}</span></p>
+                        <div class="text-right my-1">
+                          <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6;">{{ entry.terms }}</span>
+                        </div>
                       {% endif %}
 
-                      {% if entry.notes %}
-                        <p class="mb-0"><em>{{ entry.notes }}</em></p>
-                      {% endif %}
-
-                      {% if entry.mentor %}
-                        <p class="mb-0"><em>with {{ entry.mentor }} '{{ entry.year }}</em></p>
-                      {% endif %}
                     </div>
                   </li>
+                  
                 {% endfor %}
               </ul>
             </div>
