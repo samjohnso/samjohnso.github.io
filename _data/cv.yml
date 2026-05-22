@@ -63,6 +63,11 @@ cv:
         end_date: 2018
 
     Publications:
+      - title: Auslander-Reiten Theory for Equivariant Sheaves on Trees
+        author: S. Johnson
+        publisher: Thesis
+        releaseDate: 2026
+      
       - title: Types and collapse for cuspidal representations of groups acting on trees
         author: S. Johnson, M. Weissman
         publisher: Pre-print
@@ -86,9 +91,9 @@ cv:
         keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
 
     Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
+      - name: Data Sciencee
+        date: In-progress
+        issuer: Erdös Institute
         icon: fa-solid fa-location-dot
 
     Projects:
