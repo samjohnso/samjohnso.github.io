@@ -48,8 +48,13 @@ layout: default
                         <!-- Tweak 2: Added optional Course Materials PDF button line -->
                         {% if entry.pdf %}
                           <div class="mt-1">
-                            <a href="{{ entry.pdf | relative_url }}" class="btn btn-sm btn-outline-secondary py-0 px-2 font-weight-normal" style="font-size: 0.75rem; border-radius: 4px;" target="_blank" rel="noopener noreferrer">
-                              <i class="fas fa-file-pdf mr-1"></i>Course Materials
+                            <!-- Styled directly with theme variables to dynamically match light/dark modes -->
+                            <a href="{{ entry.pdf | relative_url }}" 
+                               class="btn btn-sm py-0 px-2 font-weight-normal custom-pdf-btn" 
+                               style="font-size: 0.75rem; border-radius: 4px; color: var(--global-theme-color); border: 1px solid var(--global-theme-color); background: transparent;" 
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                             <i class="fas fa-file-pdf mr-1"></i>Course Materials
                             </a>
                           </div>
                         {% endif %}
