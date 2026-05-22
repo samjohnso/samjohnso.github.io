@@ -80,30 +80,28 @@ cv:
         url: https://msp.org/involve/2021/14-5/involve-v14-n5-p06-p.pdf
         
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Loading...
+        level: ""
+        icon: fa-solid fa-tag
+        keywords: ""
 
     Interests:
-      - name: Physics
+      - name: Loading...
         icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+        keywords: ""
 
     Certificates:
-      - name: Data Sciencee
+      - name: Data Science
         date: In-progress
         issuer: Erdös Institute
         icon: fa-solid fa-location-dot
 
     Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
+      - name: Loading...
+        summary: ""
         highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
+        #start_date: 2018-01-01
+        #end_date: 2018-01-01
 
     References:
       - name: Martin Weissman
