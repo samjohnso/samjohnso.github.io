@@ -1,28 +1,85 @@
 teaching:
-  - title: "Instructor of Record"
-    institution: "UCSC"
-    courses:
-      - course: "Calculus for Science and Engineering, MATH 19B"
-        terms: "Spring '22"
-        notes: "~30 students"
-      - course: "COSMOS Summer School"
-        notes: "Linear Algebra (Summer '25), Number Theory (Summer '26)"
+  sections:
+    Instructor of Record:
+      - title: Calculus for Science and Engineering
+        code: MATH 19B
+        institution: UCSC
+        terms: Spring '22
+        notes: ~30 students
 
-  - title: "Teaching Assistant"
-    institution: "UCSC"
-    courses:
-      - course: "Calculus with Applications, MATH 11A/B"
-        terms: "Spring '21, Winter '22, Summer '22, Summer '23, Fall '24"
-      - course: "Mathematics for Life Sciences, MATH 16A/B"
-        terms: "Winter '25, Spring '25"
-      # ... add more courses
+      - title: Linear Algebra
+        code: Summer School
+        institution: COSMOS Summer School
+        terms: Summer '25
 
-  - title: "Directed Reading Program"
-    institution: "UCSC"
-    courses:
-      - course: "Galois Theory"
-        notes: "with Sanjana Paul '22"
-      - course: "Lattice Based Cryptography"
-        notes: "with Ryan Jesubalan '24"
-      - course: "Coxeter Groups"
-        notes: "with Ryanne Reynolds '26"
+      - title: Number Theory
+        code: Summer School
+        institution: COSMOS Summer School
+        terms: Summer '26
+
+    Teaching Assistant:
+      - title: Calculus with Applications
+        code: MATH 11A/B
+        institution: UCSC
+        terms: Spring '21, Winter '22, Summer '22, Summer '23, Fall '24
+
+      - title: Mathematics for Life Sciences
+        code: MATH 16A/B
+        institution: UCSC
+        terms: Winter '25, Spring '25
+
+      - title: Calculus for Science and Engineering
+        code: MATH 19A/B
+        institution: UCSC
+        terms: Fall '20, Fall '23, Spring '24, Winter '25
+
+      - title: Linear Algebra
+        code: MATH 21
+        institution: UCSC
+        terms: Summer '21, Fall '21, Winter '23, Spring '26
+
+      - title: Ordinary Differential Equations
+        code: MATH 24
+        institution: UCSC
+        terms: Summer '23
+
+      - title: Intro to Proofs & Problem Solving
+        code: MATH 100
+        institution: UCSC
+        terms: Spring '23, Summer '25
+
+      - title: Algebra (Group Theory)
+        code: MATH 111A
+        institution: UCSC
+        terms: Fall '22, Fall '25
+
+      - title: Advanced Linear Algebra
+        code: MATH 117
+        institution: UCSC
+        terms: Fall '25
+
+      - title: Programming for Mathematics (Python)
+        code: MATH 152
+        institution: UCSC
+        terms: Winter '24
+
+      - title: Introductory Chaos Theory
+        code: MATH 152
+        institution: UCSC
+        terms: Winter '24
+
+    Directed Reading Program:
+      - title: Galois Theory
+        institution: UCSC
+        mentor: Sanjana Paul
+        year: '22
+
+      - title: Lattice Based Cryptography
+        institution: UCSC
+        mentor: Ryan Jesubalan
+        year: '24
+
+      - title: Coxeter Groups
+        institution: UCSC
+        mentor: Ryanne Reynolds
+        year: '26

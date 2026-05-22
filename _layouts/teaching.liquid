@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <article>
+    <div class="cv">
+      {% if site.data.teaching and site.data.teaching.teaching %}
+        {% assign teaching = site.data.teaching.teaching %}
+
+        {% for section_pair in teaching.sections %}
+          {% assign section_title = section_pair[0] %}
+          {% assign section_entries = section_pair[1] %}
+
+          <a class="anchor" id="{{ section_title | slugify }}"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
+            <div>
+              <ul class="card-text font-weight-light list-group list-group-flush">
+                {% for entry in section_entries %}
+                  <li class="list-group-item">
+                    <div>
+                      {% if entry.title %}
+                        <h6 class="title font-weight-bold">{{ entry.title }}</h6>
+                      {% endif %}
+
+                      {% if entry.code %}
+                        <p class="mb-1"><strong>{{ entry.code }}</strong></p>
+                      {% endif %}
+
+                      {% if entry.institution %}
+                        <p class="mb-1">{{ entry.institution }}</p>
+                      {% endif %}
+
+                      {% if entry.terms %}
+                        <p class="mb-0"><span class="badge badge-light">{{ entry.terms }}</span></p>
+                      {% endif %}
+
+                      {% if entry.notes %}
+                        <p class="mb-0"><em>{{ entry.notes }}</em></p>
+                      {% endif %}
+
+                      {% if entry.mentor %}
+                        <p class="mb-0"><em>with {{ entry.mentor }} '{{ entry.year }}</em></p>
+                      {% endif %}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+
+      {% else %}
+        <p>No teaching data found. Please configure _data/teaching.yml</p>
+      {% endif %}
+    </div>
+  </article>
+</div>
