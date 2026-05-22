@@ -42,4 +42,9 @@ calendar: false
 
 ---
 
+### Directed Reading Program | UCSC
+- Galois Theory, with Sanjana Paul '22
+- Lattice Based Cryptography, with Ryan Jesubalan '24
+- Coxeter Groups, with Ryanne Reynolds '26
+
 
