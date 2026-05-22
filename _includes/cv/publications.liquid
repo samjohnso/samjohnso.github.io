@@ -33,6 +33,14 @@
               <h6 class="title font-weight-bold ml-1 ml-md-4">{{ entry.title }}</h6>
             {% endif %}
 
+            <!-- Added: Authors display for dated entries -->
+            {% assign entry_authors = entry.author | default: entry.authors %}
+            {% if entry_authors %}
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; opacity: 0.85;">
+                {{ entry_authors }}
+              </h6>
+            {% endif %}
+
             {% if entry.publisher %}
               <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
                 <em>{{ entry.publisher }}</em>
@@ -51,6 +59,14 @@
               </h6>
             {% elsif entry.title %}
               <h6 class="title font-weight-bold ml-1 ml-md-4">{{ entry.title }}</h6>
+            {% endif %}
+
+            <!-- Added: Authors display for undated entries -->
+            {% assign entry_authors = entry.author | default: entry.authors %}
+            {% if entry_authors %}
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; opacity: 0.85;">
+                {{ entry_authors }}
+              </h6>
             {% endif %}
 
             {% if entry.publisher %}
