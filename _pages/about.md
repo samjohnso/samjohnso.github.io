@@ -2,15 +2,13 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. Candidate in Mathematics at the University of California, Santa Cruz
+subtitle: 
 
 profile:
   align: right
   image: Profile_pic.png
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
     <p>Santa Cruz, California 95060</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -27,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi there! My name is Sam and I'm currently a PhD candidate in Mathematics at the University of California, Santa Cruz. My advisor is [Martin Weissman](https://martyweissman.com/).
+Hi there! My name is Sam and I'm currently a PhD candidate in Mathematics at the University of California, Santa Cruz. My advisor is [Martin Weissman](https://martyweissman.com/). I am on the job market, so please hire me!
 
 My research interests lie primarily in representation theory and geometry, and in the applications of these ideas to other fields e.g number theory, data analysis etc. My work thus far has used ideas from quiver theory with applications geared towards the representation theory of p-adic groups. 
 
