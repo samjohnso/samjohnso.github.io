@@ -12,10 +12,10 @@ layout: default
 
   <article>
     <div class="cv">
-      {% if site.data.teaching and site.data.teaching.teaching %}
-        {% assign teaching = site.data.teaching.teaching %}
+      {% if site.data.teaching.sections %}
+        {% assign sections = site.data.teaching.sections %}
 
-        {% for section_pair in teaching.sections %}
+        {% for section_pair in sections %}
           {% assign section_title = section_pair[0] %}
           {% assign section_entries = section_pair[1] %}
 
