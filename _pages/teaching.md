@@ -7,8 +7,6 @@ nav: true
 nav_order: 3
 calendar: false
 ---
-
-## Teaching Experience
 <!-- Add your teaching experience entries below -->
 
 ### Instructor of Record | UCSC
