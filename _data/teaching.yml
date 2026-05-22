@@ -10,11 +10,13 @@ sections:
       code: Summer School
       institution: COSMOS Summer School
       terms: Summer 25
+      pdf:
 
     - title: Number Theory
       code: Summer School
       institution: COSMOS Summer School
       terms: Summer 26
+      pdf: 
 
   Teaching Assistant:
     - title: Calculus with Applications
