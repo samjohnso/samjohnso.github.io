@@ -30,7 +30,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
           
           <!-- Top Row: Degree/Area on left, Date on right -->
-          <div class="d-flex justify-content-between align-items-baseline ml-1 ml-md-4" style="margin-bottom: 0.15rem;">
+          <div class="d-flex justify-content-between align-items-baseline ml-1 ml-md-4 w-100" style="margin-bottom: 0.15rem;">
             <h6 class="title font-weight-bold mb-0" style="font-size: 1.05rem;">
               {% if entry.url %}
                 <a href="{{ entry.url }}">{{ study_type }}{% if entry.area %} in {{ entry.area }}{% endif %}</a>
@@ -39,19 +39,20 @@
               {% endif %}
             </h6>
             {% if date_string %}
-              <span class="text-muted small font-weight-normal text-right" style="white-space: nowrap;">
+              <span class="text-muted small font-weight-normal text-right ml-2" style="white-space: nowrap;">
                 {{ date_string }}
               </span>
             {% endif %}
           </div>
 
-          <!-- Second Row: Institution on left, Location on right -->
-          <div class="d-flex justify-content-between align-items-baseline ml-1 ml-md-4" style="margin-bottom: 0.2rem; line-height: 1.3;">
-            <div class="text-secondary" style="font-size: 0.95rem; font-weight: 500;">
+          <!-- Second Row: Institution on left (Global Theme Color), Location on right -->
+          <div class="d-flex justify-content-between align-items-baseline ml-1 ml-md-4 w-100" style="margin-bottom: 0.2rem; line-height: 1.3;">
+            <!-- text-color-theme dynamically pulls your site's global accent color -->
+            <div class="text-color-theme" style="font-size: 0.95rem; font-weight: 500;">
               {{ entry.institution }}
             </div>
             {% if location != '' %}
-              <span class="text-muted small text-right" style="font-size: 0.85rem;">
+              <span class="text-muted small text-right ml-2" style="font-size: 0.85rem; white-space: nowrap;">
                 <i class="fa-solid fa-location-dot" style="margin-right: 3px; opacity: 0.7;"></i>{{ location }}
               </span>
             {% endif %}
