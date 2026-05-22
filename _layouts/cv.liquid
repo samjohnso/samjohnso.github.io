@@ -62,9 +62,9 @@ layout: default
 
         <!-- Header/Contact Information -->
         {% if cv.name or cv.label or cv.location or cv.email or cv.phone or cv.website %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Contact Information</h3>
-            <table class="table table-cv table-sm table-borderless">
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Contact Information</h3>
+            <table class="table table-cv table-sm table-borderless mb-0">
               {% if cv.name %}
                 <tr>
                   <td class="p-1 pr-2 font-weight-bold"><b>Name</b></td>
@@ -114,22 +114,33 @@ layout: default
 
         <!-- Summary -->
         {% if cv.summary %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Professional Summary</h3>
-            <p>{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Professional Summary</h3>
+            <p class="mb-0">{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
           </div>
         {% endif %}
 
-        <!-- RenderCV Sections - Merge Experience and Volunteer -->
-        {% comment %} First, combine Experience and Volunteer entries {% endcomment %}
+        <!-- RenderCV Sections: Forced Education First -->
+        {% if cv.sections.Education %}
+          <a class="anchor" id="education"></a>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Education</h3>
+            <div>
+              {% assign entries = cv.sections.Education %}
+              {% include cv/education.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- RenderCV Sections: Combined Experience Second -->
         {% assign empty_array = '' | split: ',' %}
         {% assign exp = cv.sections.Experience | default: empty_array %}
         {% assign vol = cv.sections.Volunteer | default: empty_array %}
         {% assign combined_experience = exp | concat: vol %}
         {% if combined_experience.size > 0 %}
           <a class="anchor" id="experience"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Experience</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Experience</h3>
             <div>
               {% assign entries = combined_experience %}
               {% include cv/experience.liquid %}
@@ -137,24 +148,22 @@ layout: default
           </div>
         {% endif %}
 
-        {% comment %} Now render all other sections except Experience and Volunteer {% endcomment %}
+        {% comment %} Now render all remaining loops dynamically, skipping Education, Experience, and Volunteer {% endcomment %}
         {% for section_pair in cv.sections %}
           {% assign section_title = section_pair[0] %}
           {% assign section_entries = section_pair[1] %}
 
-          {% comment %} Skip Experience and Volunteer as we've already processed them combined {% endcomment %}
-          {% if section_title == 'Experience' or section_title == 'Volunteer' %}
+          {% if section_title == 'Education' or section_title == 'Experience' or section_title == 'Volunteer' %}
             {% continue %}
           {% endif %}
 
           <a class="anchor" id="{{ section_title | slugify }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
+          <div class="card mt-2 py-2 px-3">
+            <div class="d-flex justify-content-between align-items-baseline mb-1">
+              <h3 class="card-title font-weight-medium m-0">{{ section_title }}</h3>
+            </div>
             <div>
-              {% if section_title == 'Education' %}
-                {% assign entries = section_entries %}
-                {% include cv/education.liquid %}
-              {% elsif section_title == 'Awards' or section_title == 'Honors and Awards' %}
+              {% if section_title == 'Awards' or section_title == 'Honors and Awards' %}
                 {% assign entries = section_entries %}
                 {% include cv/awards.liquid %}
               {% elsif section_title == 'Publications' %}
@@ -183,11 +192,12 @@ layout: default
                 {% for entry in section_entries %}
                   {% if entry.bullet %}
                     <ul class="card-text font-weight-light list-group list-group-flush">
-                      <li class="list-group-item">{{ entry.bullet | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                      <li class="list-group-item py-1">{{ entry.bullet | markdownify | remove: '<p>' | remove: '</p>' }}</li>
                     </ul>
                   {% elsif entry.label %}
-                    <div class="card-text font-weight-light">
-                      <strong>{{ entry.label }}:</strong> {{ entry.details }}
+                    <div class="card-text font-weight-light d-flex justify-content-between">
+                      <span><strong>{{ entry.label }}:</strong> {{ entry.details }}</span>
+                      {% if entry.date %}<span class="text-right text-muted font-weight-normal">{{ entry.date }}</span>{% endif %}
                     </div>
                   {% endif %}
                 {% endfor %}
@@ -201,10 +211,10 @@ layout: default
 
         <!-- Contact Information -->
         {% if site.data.resume.basics %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Contact Information</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Contact Information</h3>
             {% assign basics = site.data.resume.basics %}
-            <table class="table table-cv table-sm table-borderless">
+            <table class="table table-cv table-sm table-borderless mb-0">
               {% if basics.name %}
                 <tr>
                   <td class="p-1 pr-2 font-weight-bold"><b>Name</b></td>
@@ -254,33 +264,17 @@ layout: default
 
         <!-- Summary -->
         {% if site.data.resume.basics.summary %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Professional Summary</h3>
-            <p>{{ site.data.resume.basics.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Professional Summary</h3>
+            <p class="mb-0">{{ site.data.resume.basics.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
           </div>
         {% endif %}
 
-        <!-- JSONResume Sections - Merge work and volunteer into Experience -->
-        {% assign empty_array = '' | split: ',' %}
-        {% assign work = site.data.resume.work | default: empty_array %}
-        {% assign vol = site.data.resume.volunteer | default: empty_array %}
-        {% assign combined_experience = work | concat: vol %}
-        {% if combined_experience.size > 0 %}
-          <a class="anchor" id="experience"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Experience</h3>
-            <div>
-              {% assign entries = combined_experience %}
-              {% include cv/experience.liquid %}
-            </div>
-          </div>
-        {% endif %}
-
-        <!-- Education -->
+        <!-- JSONResume Sections: Education First -->
         {% if site.data.resume.education.size > 0 %}
           <a class="anchor" id="education"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Education</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Education</h3>
             <div>
               {% assign entries = site.data.resume.education %}
               {% include cv/education.liquid %}
@@ -288,11 +282,27 @@ layout: default
           </div>
         {% endif %}
 
+        <!-- JSONResume Sections: Experience Second -->
+        {% assign empty_array = '' | split: ',' %}
+        {% assign work = site.data.resume.work | default: empty_array %}
+        {% assign vol = site.data.resume.volunteer | default: empty_array %}
+        {% assign combined_experience = work | concat: vol %}
+        {% if combined_experience.size > 0 %}
+          <a class="anchor" id="experience"></a>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Experience</h3>
+            <div>
+              {% assign entries = combined_experience %}
+              {% include cv/experience.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
         <!-- Awards -->
         {% if site.data.resume.awards.size > 0 %}
           <a class="anchor" id="awards"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Awards</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Awards</h3>
             <div>
               {% assign entries = site.data.resume.awards %}
               {% include cv/awards.liquid %}
@@ -303,8 +313,8 @@ layout: default
         <!-- Publications -->
         {% if site.data.resume.publications.size > 0 %}
           <a class="anchor" id="publications"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Publications</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Publications</h3>
             <div>
               {% assign entries = site.data.resume.publications %}
               {% include cv/publications.liquid %}
@@ -315,8 +325,8 @@ layout: default
         <!-- Skills -->
         {% if site.data.resume.skills.size > 0 %}
           <a class="anchor" id="skills"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Skills</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Skills</h3>
             <div>
               {% assign entries = site.data.resume.skills %}
               {% include cv/skills.liquid %}
@@ -327,8 +337,8 @@ layout: default
         <!-- Languages -->
         {% if site.data.resume.languages.size > 0 %}
           <a class="anchor" id="languages"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Languages</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Languages</h3>
             <div>
               {% assign entries = site.data.resume.languages %}
               {% include cv/languages.liquid %}
@@ -339,8 +349,8 @@ layout: default
         <!-- Interests -->
         {% if site.data.resume.interests.size > 0 %}
           <a class="anchor" id="interests"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Interests</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Interests</h3>
             <div>
               {% assign entries = site.data.resume.interests %}
               {% include cv/interests.liquid %}
@@ -351,8 +361,8 @@ layout: default
         <!-- Certificates -->
         {% if site.data.resume.certificates.size > 0 %}
           <a class="anchor" id="certificates"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Certificates</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Certificates</h3>
             <div>
               {% assign entries = site.data.resume.certificates %}
               {% include cv/certificates.liquid %}
@@ -363,8 +373,8 @@ layout: default
         <!-- Projects -->
         {% if site.data.resume.projects.size > 0 %}
           <a class="anchor" id="projects"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Projects</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">Projects</h3>
             <div>
               {% assign entries = site.data.resume.projects %}
               {% include cv/projects.liquid %}
@@ -375,8 +385,8 @@ layout: default
         <!-- References -->
         {% if site.data.resume.references.size > 0 %}
           <a class="anchor" id="references"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">References</h3>
+          <div class="card mt-2 py-2 px-3">
+            <h3 class="card-title font-weight-medium mb-1">References</h3>
             <div>
               {% assign entries = site.data.resume.references %}
               {% include cv/references.liquid %}
