@@ -25,30 +25,24 @@ cv:
     Education:
       - institution: University of California, Santa Cruz
         location: Santa Cruz, California
-        url: https://math.ucsc.edu/
         area: Mathematics
-        studyType: PhD
+        studyType: Ph.D.
         start_date: 2020
-        end_date: 2026 (Expected)
-        score: ""
-        courses: ""
-        highlights:
+        end_date: 2026
 
       - institution: University of California, Santa Cruz
         location: Santa Cruz, California
         area: Mathematics
-        studyType: Masters
+        studyType: M.S.
         start_date: 2020
         end_date: 2024
-        highlights:
 
       - institution: University of San Francisco
         location: San Francisco, California
         area: Mathematics
-        studyType: BS
+        studyType: B.S.
         start_date: 2017
         end_date: 2020
-        highlights:
 
     Experience:
       - company: University of Calfifornia, Santa Cruz
@@ -56,62 +50,27 @@ cv:
         location: Santa Cruz, California
         start_date: 2020
         end_date: Present
-        summary: Aid in instruction of undergraduate mathematics courses. 
-        highlights:
-          - Relativity
-          - Description 2.
+        summary: Aid in instruction of undergraduate mathematics courses. For a full list of course experience see teaching tab.
 
       - company: University of Calfifornia, Santa Cruz
         position: Teaching and Administrative Coordinator
         location: Santa Cruz, California
-        start_date: 2020
+        start_date: 2025
         end_date: Present
         summary: Aid in hiring and allocation of teaching assistant assignments in the mathematics department. 
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
+      - company: COSMOS Summer School
+        position: Instructor
+        location: Santa Cruz, California
+        start_date: 2025
+        end_date: Present
 
     Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
+      - company: San Francisco Math Circle
+        position: Volunteer
+        location: San Francisco
         start_date: 2014-04-01
         end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
-        highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
-
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
-
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
 
     Publications:
       - title: Zur Elektrodynamik bewegter Körper
@@ -144,13 +103,6 @@ cv:
         icon: fa-solid fa-hashtag
         keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
 
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
     Interests:
       - name: Physics
         icon: fa-solid fa-tag
@@ -161,16 +113,6 @@ cv:
         date: 2018-01-01
         issuer: Stanford University
         icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
 
     Projects:
       - name: Quantum Computing
