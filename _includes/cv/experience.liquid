@@ -67,16 +67,20 @@
 
       </div>
 
-      <!-- Optional Summary Block -->
+      <!-- Optional Summary Block with a bullet point and tighter margin -->
       {% if entry.summary %}
-        <div class="mt-2 pl-4" style="font-size: 0.95rem; font-style: italic; line-height: 1.35;">
-          {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
-        </div>
+        <ul class="items mt-1 mb-0 pl-4" style="line-height: 1.35;">
+          <li style="margin-bottom: 0.15rem;">
+            <span class="item" style="font-size: 0.95rem; font-style: italic;">
+              {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
+            </span>
+          </li>
+        </ul>
       {% endif %}
 
       <!-- Highlights (Bullet points) styled tighter -->
       {% if entry.highlights %}
-        <ul class="items mt-2 mb-1 pl-4" style="line-height: 1.35;">
+        <ul class="items {% if entry.summary %}mt-0{% else %}mt-1{% endif %} mb-1 pl-4" style="line-height: 1.35;">
           {% for item in entry.highlights %}
             <li style="margin-bottom: 0.15rem;"><span class="item small">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
           {% endfor %}
