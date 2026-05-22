@@ -6,7 +6,6 @@ cv:
   image: ""
 
   address:
-    street: ""
     city: Santa Cruz
     region: California
     postalCode: CA 95060
