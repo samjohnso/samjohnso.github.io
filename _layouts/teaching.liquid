@@ -4,7 +4,8 @@ layout: default
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+    <!-- Tweak 3: Forcing the main page title header to lowercase "teaching" -->
+    <h1 class="post-title" style="text-transform: lowercase;">{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-description">{{ page.description }}</p>
     {% endif %}
@@ -21,15 +22,12 @@ layout: default
 
           <a class="anchor" id="{{ section_title | slugify }}"></a>
           
-          <!-- Reduced margin from mt-3 to mt-2, and padding from p-3 to p-2 -->
           <div class="card mt-2 p-2">
-            <!-- Shrunk header level from h3 to h4 for a cleaner layout profile -->
             <h4 class="card-title font-weight-medium mb-2 px-1" style="font-size: 1.25rem;">{{ section_title }}</h4>
             <div>
               <ul class="card-text font-weight-light list-group list-group-flush">
                 {% for entry in section_entries %}
                   
-                  <!-- Significantly reduced list item padding vertically (py-1) -->
                   <li class="list-group-item py-1 px-1">
                     <div class="d-flex justify-content-between align-items-center flex-wrap">
                       
@@ -47,7 +45,15 @@ layout: default
                           <span class="text-muted small ml-2">• {{ entry.institution }}</span>
                         {% endif %}
 
-                        <!-- Secondary notes or mentors tuck neatly directly beneath -->
+                        <!-- Tweak 2: Added optional Course Materials PDF button line -->
+                        {% if entry.pdf %}
+                          <div class="mt-1">
+                            <a href="{{ entry.pdf | relative_url }}" class="btn btn-sm btn-outline-secondary py-0 px-2 font-weight-normal" style="font-size: 0.75rem; border-radius: 4px;" target="_blank" rel="noopener noreferrer">
+                              <i class="fas fa-file-pdf mr-1"></i>Course Materials
+                            </a>
+                          </div>
+                        {% endif %}
+
                         {% if entry.notes %}
                           <small class="text-secondary d-block mt-0"><em>{{ entry.notes }}</em></small>
                         {% endif %}
@@ -57,10 +63,11 @@ layout: default
                         {% endif %}
                       </div>
 
-                      <!-- Right column: Terms cleanly aligned on the edge -->
+                      <!-- Right column: Terms aligned on the edge -->
                       {% if entry.terms %}
                         <div class="text-right my-1">
-                          <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6;">{{ entry.terms }}</span>
+                          <!-- Tweak 1: Changed border to a matching subtle grey (#dee2e6) -->
+                          <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6; background-color: #f8f9fa; color: #495057;">{{ entry.terms }}</span>
                         </div>
                       {% endif %}
 
