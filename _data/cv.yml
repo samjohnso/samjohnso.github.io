@@ -35,14 +35,14 @@ cv:
         end_date: 2020
 
     Experience:
-      - company: University of Calfifornia, Santa Cruz
+      - company: University of California, Santa Cruz
         position: Teaching Assistant
         location: Santa Cruz, California
         start_date: 2020
         end_date: Present
-        summary: Aid in instruction of undergraduate mathematics courses. For a full list of course experience see teaching tab.
+        summary: For a full list of course experience see teaching tab.
 
-      - company: University of Calfifornia, Santa Cruz
+      - company: University of California, Santa Cruz
         position: Teaching and Administrative Coordinator
         location: Santa Cruz, California
         start_date: 2025
@@ -60,8 +60,14 @@ cv:
         position: Volunteer
         location: San Francisco
         start_date: 2018
+        end_date: 2018
 
     Publications:
+      - title: Types and collapse for cuspidal representations of groups acting on trees
+        author: S. Johnson, M. Weissman
+        publisher: Pre-print
+        releaseDate: 2026
+        
       - title: A look at generalized perfect shuffles
         author: S. Johnson, L. Manny, C. Van Cott, Q. Zhang
         publisher: Involve
