@@ -1,86 +1,69 @@
 {% comment %}
-  Unified publications entry renderer for both formats
+  Unified publications entry renderer,
+  styled to match the teaching, education, and experience page layouts.
 {% endcomment %}
 
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
-    <li class="list-group-item">
-      <div class="row">
-        {% capture pub_date %}
-          {% if entry.releaseDate %}{{ entry.releaseDate }}{% elsif entry.date %}{{ entry.date }}{% endif %}
-        {% endcapture %}
+    <li class="list-group-item py-1 px-1">
+      
+      {% comment %} Date extraction logic {% endcomment %}
+      {% capture pub_date %}
+        {% if entry.releaseDate %}{{ entry.releaseDate }}{% elsif entry.date %}{{ entry.date }}{% endif %}
+      {% endcapture %}
 
-        {% if pub_date != '' %}
-          <div class="col-xs-2 col-sm-2 col-md-2 text-center">
-            <table class="table-cv">
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">
-                      {{- pub_date | split: '-' | slice: 0, 1 | join: '' -}}
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+      {% if pub_date != '' %}
+        {% assign date_string = pub_date | split: '-' | first %}
+      {% else %}
+        {% assign date_string = null %}
+      {% endif %}
+
+      {% assign entry_authors = entry.author | default: entry.authors %}
+
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        
+        <!-- Left column: Primary publication details -->
+        <div style="flex: 1; min-width: 250px;">
+          
+          <!-- Title -->
+          <span class="font-weight-bold" style="font-size: 0.95rem;">
             {% if entry.url %}
-              <h6 class="title font-weight-bold ml-1 ml-md-4">
-                <a href="{{ entry.url }}">{{ entry.title | default: entry.name }}</a>
-              </h6>
-            {% elsif entry.title %}
-              <h6 class="title font-weight-bold ml-1 ml-md-4">{{ entry.title }}</h6>
+              <a href="{{ entry.url }}">{{ entry.title | default: entry.name }}</a>
+            {% else %}
+              {{ entry.title | default: entry.name }}
             {% endif %}
+          </span>
 
-            <!-- Added: Authors display for dated entries -->
-            {% assign entry_authors = entry.author | default: entry.authors %}
-            {% if entry_authors %}
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; opacity: 0.85;">
-                {{ entry_authors }}
-              </h6>
-            {% endif %}
+          <!-- Authors -->
+          {% if entry_authors %}
+            <span class="text-muted small ml-2">• {{ entry_authors }}</span>
+          {% endif %}
 
-            {% if entry.publisher %}
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-                <em>{{ entry.publisher }}</em>
-              </h6>
-            {% endif %}
+          <!-- Publisher/Journal -->
+          {% if entry.publisher %}
+            <span class="text-muted small ml-2"><em>• {{ entry.publisher }}</em></span>
+          {% endif %}
 
-            {% if entry.summary %}
-              <p class="ml-1 ml-md-4">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-            {% endif %}
-          </div>
-        {% else %}
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            {% if entry.url %}
-              <h6 class="title font-weight-bold ml-1 ml-md-4">
-                <a href="{{ entry.url }}">{{ entry.title | default: entry.name }}</a>
-              </h6>
-            {% elsif entry.title %}
-              <h6 class="title font-weight-bold ml-1 ml-md-4">{{ entry.title }}</h6>
-            {% endif %}
+        </div>
 
-            <!-- Added: Authors display for undated entries -->
-            {% assign entry_authors = entry.author | default: entry.authors %}
-            {% if entry_authors %}
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; opacity: 0.85;">
-                {{ entry_authors }}
-              </h6>
-            {% endif %}
-
-            {% if entry.publisher %}
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-                <em>{{ entry.publisher }}</em>
-              </h6>
-            {% endif %}
-
-            {% if entry.summary %}
-              <p class="ml-1 ml-md-4">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-            {% endif %}
+        <!-- Right column: Date aligned on the edge as a badge -->
+        {% if date_string %}
+          <div class="text-right my-1">
+            <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6; background-color: #f8f9fa; color: #495057;">
+              {{ date_string }}
+            </span>
           </div>
         {% endif %}
+
       </div>
+
+      <!-- Optional Summary/Abstract Block -->
+      {% if entry.summary %}
+        <div class="mt-2 pl-4" style="font-size: 0.95rem; line-height: 1.35;">
+          {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
+        </div>
+      {% endif %}
+
     </li>
   {% endfor %}
 </ul>
