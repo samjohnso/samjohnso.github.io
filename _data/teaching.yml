@@ -4,7 +4,7 @@ sections:
       code: MATH 19B
       institution: UCSC
       terms: Spring 22
-      notes: 30 students
+      #notes: 30 students
 
     - title: Linear Algebra
       code: Summer School
