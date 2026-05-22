@@ -8,7 +8,7 @@ cv:
   address:
     city: Santa Cruz
     region: California
-    postalCode: CA 95060
+    postalCode: 95060
     countryCode: US
 
   sections:
@@ -59,8 +59,7 @@ cv:
       - company: San Francisco Math Circle
         position: Volunteer
         location: San Francisco
-        start_date: 2014-04-01
-        end_date: 2015-07-01
+        start_date: 2018
 
     Publications:
       - title: A look at generalized perfect shuffles
