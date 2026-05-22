@@ -9,15 +9,39 @@ calendar: false
 ---
 
 ## Teaching Experience
-
 <!-- Add your teaching experience entries below -->
 
-### Course Title
-**Institution** | Semester/Year
-- Brief description of your role and responsibilities
-- Key topics or skills taught
-- Any notable achievements or outcomes
+### Instructor of Record | UCSC
+- Calculus for Science and Engineering, MATH 19B
+  - Spring '22, ~30 students
+- COSMOS Summer School
+  - Linear Algebra, Summer '25
+  - Number Theory, Summer '26
 
 ---
 
-*Add more courses and teaching experiences following the same format above.*
+### Teaching Assistant | UCSC
+- Calculus with Applications, MATH 11A/B
+  - Spring '21, Winter '22, Summer '22, Summer '23, Fall '24
+- Mathematics for Life Sciences, MATH 16A/B
+  - Winter '25, Spring '25
+- Calculus for Science and Engineering, MATH 19A/B
+  - Fall '20, Fall '23, Spring '24, Winter '25
+- Linear Algebra, MATH 21
+  - Summer '21, Fall '21, Winter '23, Spring '26
+- Ordinary Differential Equations, MATH 24
+  - Summer '23
+- Intro to Proofs & Problem Solving, MATH 100
+  - Spring '23, Summer '25
+- Algebra (Group Theory), MATH 111A
+  - Fall '22, Fall '25
+- Advanced Linear Algebra, MATH 117
+  - Fall '25
+- Programming for Mathematics (Python), MATH 152
+  - Winter '24
+- Introductory Chaos Theory, MATH 152
+  - Winter '24
+
+---
+
+
