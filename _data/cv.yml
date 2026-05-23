@@ -56,8 +56,8 @@ cv:
         start_date: Fall 23
         end_date: Spring 24
         summary: >
-          Co-organizer for the [Directed Reading Program]{https://sites.google.com/ucsc.edu/drp-math/home?authuser=0} at UCSC. Program pairs undergraduate and graduate students
-          for readings on topics not usually offered in the undergraduate curriculum. Helped arrange pairings, suggest topics, and organize end of quarter student symposiums.
+          Co-organizer for the [Directed Reading Program](https://sites.google.com/ucsc.edu/drp-math/home?authuser=0) at UCSC. Program pairs undergraduate and graduate students for readings
+          on topics not usually offered in the undergraduate curriculum. Helped arrange pairings, suggest topics, and organize end of quarter student symposiums.
           
       - company: COSMOS Summer School
         position: Instructor
@@ -65,8 +65,7 @@ cv:
         start_date: 2025
         end_date: 2026
         summary: >
-          In Summer 2025 I designed and implemented a new linear algebra course for mathematically interested high-school students, see teaching page for course materials. 
-          In the upcoming Summer 2026 program I will be teaching a course on Number Theory.
+          Instructor for the [COSMOS Summer School](https://cosmos.ucsc.edu/). See teaching tab for course materials.
 
     Volunteer:
       - company: San Francisco Math Circle
