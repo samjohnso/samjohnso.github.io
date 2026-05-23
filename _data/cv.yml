@@ -35,25 +35,38 @@ cv:
         end_date: 2020
 
     Experience:
-      - company: University of California, Santa Cruz
+      - company: UCSC
         position: Teaching Assistant
         location: Santa Cruz, California
         start_date: 2020
         end_date: 2026
         summary: For a full list of course experience see teaching tab.
 
-      - company: University of California, Santa Cruz
+      - company: UCSC
         position: Teaching and Administrative Coordinator
         location: Santa Cruz, California
         start_date: 2025
         end_date: 2026
-        summary: Aid in hiring and allocation of teaching assistant assignments in the mathematics department. 
+        summary: >
+          Aid in hiring and allocation of teaching assistant assignments in the mathematics department. 
 
+      - company: Directed Reading Program, UCSC
+        position: Organizer
+        location: Santa Cruz, California
+        start_date: Fall 23
+        end_date: Spring 24
+        summary: >
+          Co-organizer for the [Directed Reading Program]{https://sites.google.com/ucsc.edu/drp-math/home?authuser=0} at UCSC. Program pairs undergraduate and graduate students
+          for readings on topics not usually offered in the undergraduate curriculum. Helped arrange pairings, suggest topics, and organize end of quarter student symposiums.
+          
       - company: COSMOS Summer School
         position: Instructor
         location: Santa Cruz, California
         start_date: 2025
         end_date: 2026
+        summary: >
+          In Summer 2025 I designed and implemented a new linear algebra course for mathematically interested high-school students, see teaching page for course materials. 
+          In the upcoming Summer 2026 program I will be teaching a course on Number Theory.
 
     Volunteer:
       - company: San Francisco Math Circle
