@@ -66,22 +66,19 @@ layout: default
                         {% if entry.mentor %}
                           <small class="text-secondary d-block mt-0"><em>with {{ entry.mentor }}</em></small>
                         {% endif %}
-                        {% if entry.year %}
-                          <div class="text-right my-1" style="min-width: 80px; flex-shrink: 0; margin-left: 10px;">
-                            <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6; background-color: #f8f9fa; color: #495057;">
-                              {{ entry.year }}
-                            </span>
-                          </div>
-                        {% endif %}
                       </div>
 
-                      <!-- Right column: Terms aligned on the edge -->
-                      {% if entry.terms %}
-                        <div class="text-right my-1">
+                      <!-- Right column: Terms and Years aligned on the edge -->
+                      <div class="text-right my-1" style="min-width: 80px; flex-shrink: 0; margin-left: 10px;">
+                        {% if entry.terms %}
                           <!-- Tweak 1: Changed border to a matching subtle grey (#dee2e6) -->
                           <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6; background-color: #f8f9fa; color: #495057;">{{ entry.terms }}</span>
-                        </div>
-                      {% endif %}
+                        {% endif %}
+                        
+                        {% if entry.year %}
+                          <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6; background-color: #f8f9fa; color: #495057;">{{ entry.year }}</span>
+                        {% endif %}
+                      </div>
 
                     </div>
                   </li>
