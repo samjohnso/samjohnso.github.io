@@ -64,7 +64,14 @@ layout: default
                         {% endif %}
 
                         {% if entry.mentor %}
-                          <small class="text-secondary d-block mt-0"><em>with {{ entry.mentor }} ({{ entry.year }})</em></small>
+                          <small class="text-secondary d-block mt-0"><em>with {{ entry.mentor }}</em></small>
+                        {% endif %}
+                        {% if entry.year %}
+                          <div class="text-right my-1" style="min-width: 80px; flex-shrink: 0; margin-left: 10px;">
+                            <span class="badge badge-light py-1 px-2" style="font-size: 0.8rem; white-space: normal; border: 1px solid #dee2e6; background-color: #f8f9fa; color: #495057;">
+                              {{ entry.year }}
+                            </span>
+                          </div>
                         {% endif %}
                       </div>
 
