@@ -67,6 +67,8 @@ cv:
         author: S. Johnson
         publisher: Thesis
         releaseDate: 2026
+        summary: >
+          blah blah blah blah.
       
       - title: Types and collapse for cuspidal representations of groups acting on trees
         author: S. Johnson, M. Weissman
