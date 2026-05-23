@@ -32,27 +32,45 @@
 
       <div class="d-flex justify-content-between align-items-center flex-wrap">
         
-        <!-- Left column: Primary experience details -->
-        <div style="flex: 1; min-width: 250px;">
+        <!-- Left column: Arrow and Primary experience details -->
+        <div class="d-flex align-items-start" style="flex: 1; min-width: 250px;">
           
-          <!-- Position Title -->
-          <span class="font-weight-bold" style="font-size: 0.95rem;">
-            {% if entry.url %}
-              <a href="{{ entry.url }}">{{ position_title }}</a>
-            {% elsif position_title != '' %}
-              {{ position_title }}
+          <!-- Dropdown Arrow Container -->
+          <div style="width: 20px; flex-shrink: 0; margin-top: 0px; margin-right: 4px;">
+            {% if entry.summary or entry.highlights %}
+              <button class="btn btn-link p-0 m-0 shadow-none text-decoration-none" 
+                      style="font-size: 0.95rem; color: var(--global-theme-color); line-height: 1; cursor: pointer;" 
+                      type="button" 
+                      data-toggle="collapse" 
+                      data-target="#experience-{{ forloop.index }}" 
+                      aria-expanded="false" 
+                      aria-controls="experience-{{ forloop.index }}">
+                <i class="fas fa-caret-down"></i>
+              </button>
             {% endif %}
-          </span>
+          </div>
 
-          <!-- Company / Organization (Matches Education styling) -->
-          {% if company_name != '' %}
-            <span class="text-muted small ml-2">• {{ company_name }}</span>
-          {% endif %}
+          <!-- Experience Text Content -->
+          <div>
+            <!-- Position Title -->
+            <span class="font-weight-bold" style="font-size: 0.95rem;">
+              {% if entry.url %}
+                <a href="{{ entry.url }}">{{ position_title }}</a>
+              {% elsif position_title != '' %}
+                {{ position_title }}
+              {% endif %}
+            </span>
 
-          <!-- Location -->
-          {% if location != '' %}
-            <span class="text-muted small ml-2">• <i class="fa-solid fa-location-dot" style="margin-right: 3px; opacity: 0.7;"></i>{{ location }}</span>
-          {% endif %}
+            <!-- Company / Organization (Matches Education styling) -->
+            {% if company_name != '' %}
+              <span class="text-muted small ml-2">• {{ company_name }}</span>
+            {% endif %}
+
+            <!-- Location -->
+            {% if location != '' %}
+              <span class="text-muted small ml-2">• <i class="fa-solid fa-location-dot" style="margin-right: 3px; opacity: 0.7;"></i>{{ location }}</span>
+            {% endif %}
+          </div>
 
         </div>
 
@@ -67,24 +85,31 @@
 
       </div>
 
-      <!-- Optional Summary Block with a bullet point and tighter margin -->
-      {% if entry.summary %}
-        <ul class="items mt-1 mb-0 pl-4" style="line-height: 1.35;">
-          <li style="margin-bottom: 0.15rem;">
-            <span class="item" style="font-size: 0.95rem; font-style: italic;">
-              {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
-            </span>
-          </li>
-        </ul>
-      {% endif %}
+      <!-- Collapsible Description Block (Contains both Summary and Highlights) -->
+      {% if entry.summary or entry.highlights %}
+        <div class="collapse" id="experience-{{ forloop.index }}">
+          
+          <!-- Optional Summary Block with a bullet point and tighter margin -->
+          {% if entry.summary %}
+            <ul class="items mt-1 mb-0 pl-4" style="line-height: 1.35;">
+              <li style="margin-bottom: 0.15rem;">
+                <span class="item" style="font-size: 0.95rem; font-style: italic;">
+                  {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
+                </span>
+              </li>
+            </ul>
+          {% endif %}
 
-      <!-- Highlights (Bullet points) styled tighter -->
-      {% if entry.highlights %}
-        <ul class="items {% if entry.summary %}mt-0{% else %}mt-1{% endif %} mb-1 pl-4" style="line-height: 1.35;">
-          {% for item in entry.highlights %}
-            <li style="margin-bottom: 0.15rem;"><span class="item small">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
-          {% endfor %}
-        </ul>
+          <!-- Highlights (Bullet points) styled tighter -->
+          {% if entry.highlights %}
+            <ul class="items {% if entry.summary %}mt-0{% else %}mt-1{% endif %} mb-1 pl-4" style="line-height: 1.35;">
+              {% for item in entry.highlights %}
+                <li style="margin-bottom: 0.15rem;"><span class="item small">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        </div>
       {% endif %}
 
     </li>
